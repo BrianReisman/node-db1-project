@@ -1,4 +1,4 @@
-# Node DB1 Project Starter Code
+<!-- # Node DB1 Project Starter Code
 
 ## Introduction
 
@@ -25,7 +25,7 @@ There are two possible ways to submit your project. Your instructor should have 
 - [ ] Fork and clone the repository.
 - [ ] Implement your project in a `firstname-lastname` branch.
 - [ ] Create a pull request of `firstname-lastname` against your `main` branch.
-- [ ] Open the assignment in Canvas and submit your pull request.
+- [ ] Open the assignment in Canvas and submit your pull request. -->
 
 ### Task 2: Minimum Viable Product
 
@@ -33,7 +33,7 @@ There are two possible ways to submit your project. Your instructor should have 
 
 Visit [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/trysql.asp?filename=trysql_select_all) using Chrome and build the queries below. Once they work copy them to the `queries.sql` file at the root of the project.
 
-- Find all customers with postal code 1010. Returns 3 records.
+<!-- - Find all customers with postal code 1010. Returns 3 records. -->
 - Find the phone number for the supplier with the id 11. Should be (010) 9984510.
 - List first 10 orders placed, sorted descending by the order date. The order with date 1997-02-12 should be at the top.
 - Find all customers that live in London, Madrid, or Brazil. Returns 18 records.
