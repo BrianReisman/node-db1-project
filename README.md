@@ -72,12 +72,12 @@ npx knex seed:run
 
 - Write the following middlewares inside `api/accounts/accounts-middleware.js`:
 
-  - `checkAccountPayload` returns a status 400 with if `req.body` is invalid:
+  <!-- - `checkAccountPayload` returns a status 400 with if `req.body` is invalid:
     - If either name or budget are undefined, return `{ message: "name and budget are required" }`
     - If name is not a string, return `{ message: "name of account must be a string" }`
     - If the _trimmed_ name is shorter than 3 or longer than 100, return `{ message: "name of account must be between 3 and 100" }`
     - If budget is not a number, return `{ message: "budget of account must be a number" }`
-    - If budget is a negative number or over one million, return  `{ message: "budget of account is too large or too small" }`
+    - If budget is a negative number or over one million, return  `{ message: "budget of account is too large or too small" }` -->
 
   <!-- - `checkAccountId` returns a status 404 with a `{ message: "account not found" }` if `req.params.id` does not exist in the database -->
 
@@ -87,8 +87,8 @@ npx knex seed:run
 
 - Write CRUD for the `accounts` resource, using the middlewares and model functions above wherever appropriate:
 
-  - `[GET] /api/accounts` returns an array of accounts (or an empty array if there aren't any).
-  - `[GET] /api/accounts/:id` returns an account by the given id.
+  <!-- - `[GET] /api/accounts` returns an array of accounts (or an empty array if there aren't any). -->
+  <!-- - `[GET] /api/accounts/:id` returns an account by the given id. -->
   - `[POST] /api/accounts` returns the created account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
   - `[PUT] /api/accounts/:id` returns the updated account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
   - `[DELETE] /api/accounts/:id` returns the deleted account.
@@ -97,18 +97,16 @@ npx knex seed:run
 - Test your endpoints automatically by running `npm test`.
 
 #### Notes
-
-- You are welcome to create additional files but **do not move or rename existing files** or folders.
-- Do not alter your `package.json` file except to install additional libraries or add additional scripts.
-- In your solution, it is essential that you follow best practices and produce clean and professional results.
-- Schedule time to review, refine, and assess your work.
-- Perform basic professional polishing including spell-checking and grammar-checking on your work.
+<!-- - You are welcome to create additional files but **do not move or rename existing files** or folders. -->
+<!-- - Do not alter your `package.json` file except to install additional libraries or add additional scripts. -->
+<!-- - In your solution, it is essential that you follow best practices and produce clean and professional results. -->
+<!-- - Schedule time to review, refine, and assess your work. -->
+<!-- - Perform basic professional polishing including spell-checking and grammar-checking on your work. -->
 
 
 
 
  ### Task 3: Stretch Problems
-
 <!--The following exercises **require research**, the concepts needed to complete them have not been covered in class yet.
 
 - Run more queries.

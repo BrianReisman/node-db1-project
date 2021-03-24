@@ -23,16 +23,30 @@ router.get("/:id", checkAccountId, async (req, res, next) => {
   res.status(200).json(req.id);
 });
 
-router.post("/", async (req, res, next) => {
-  console.log("[POST] /");
-});
+router.post(
+  "/",
+  checkAccountPayload,
+  checkAccountNameUnique,
+  async (req, res, next) => {
+    try {
+      const newAccount = await Accounts.create(req.body);
+      if (newAccount) {
+        return res.status(201).json(req.body);
+      } else {
+        return res.status(400).json({ message: "unable to create account" });
+      }
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 router.put("/:id", async (req, res, next) => {
-  console.log("[PUT] /");
+  // console.log("[PUT] /");
 });
 
 router.delete("/:id", async (req, res, next) => {
-  console.log("[DELETE] /");
+  // console.log("[DELETE] /");
 });
 
 router.use((err, req, res, next) => {

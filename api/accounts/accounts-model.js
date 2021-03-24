@@ -2,14 +2,15 @@ const db = require('../../data/db-config')
 
 const getAll = () => {
   return db('accounts')
+  // return Promise.reject()
 }
 
 const getById = id => {
   return db('accounts').where({id: id}).first()
 }
 
-const create = async account => {
-  // DO YOUR MAGIC
+const create = account => {
+  return db('accounts').insert(account)
 }
 
 const updateById = async (id, account) => {
@@ -25,5 +26,5 @@ module.exports = {
   getById,
   create,
   updateById,
-  deleteById,
+  deleteById
 }
