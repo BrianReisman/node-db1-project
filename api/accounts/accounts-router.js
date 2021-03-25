@@ -50,9 +50,9 @@ router.put(
       const updated = await Accounts.updateById(req.account.id, req.body);
       if (updated) {
         res.status(200).json(req.body);
-        console.log(updated)
+        console.log(updated);
       } else {
-        console.log(updated)
+        console.log(updated);
         res.status(400).json({ message: "item not updated" });
       }
     } catch (error) {
@@ -62,8 +62,17 @@ router.put(
   }
 );
 
-router.delete("/:id", async (req, res, next) => {
-  // console.log("[DELETE] /");
+router.delete("/:id", checkAccountId, async (req, res, next) => {
+  try {
+    const deletedItem = await Accounts.deleteById(req.params.id);
+    if (deletedItem) {
+      res.status(200).json(req.account);
+    } else {
+      res.status(400).json({ message: "delete unsuccessful" });
+    }
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.use((err, req, res, next) => {
@@ -83,3 +92,4 @@ module.exports = router;
 // 400 - rejection error. Bad request. The server will not accept/process this. "You shall not pass!"
 // 404 - not found. Does not exist
 // 500 - not something the client/users see or get sent back. Categorically **out of the user's control.**
+//

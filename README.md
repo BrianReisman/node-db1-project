@@ -64,9 +64,9 @@ npx knex seed:run
 
   <!-- - `getAll` resolves to an array of accounts (or an empty array) -->
   <!-- - `getById` resolves to an account by the given id -->
-  - `create` resolves to the newly created account
-  - `updateById` resolves to the updated account
-  - `deleteById` resolves to the deleted account
+  <!-- - `create` resolves to the newly created account -->
+  <!-- - `updateById` resolves to the updated account -->
+  <!-- - `deleteById` resolves to the deleted account -->
 
 #### Write Middleware
 
@@ -81,7 +81,7 @@ npx knex seed:run
 
   <!-- - `checkAccountId` returns a status 404 with a `{ message: "account not found" }` if `req.params.id` does not exist in the database -->
 
-  - `checkAccountNameUnique` returns a status 400 with a `{ message: "that name is taken" }` if the _trimmed_ `req.body.name` already exists in the database
+  <!-- - `checkAccountNameUnique` returns a status 400 with a `{ message: "that name is taken" }` if the _trimmed_ `req.body.name` already exists in the database -->
 
 ### Write Accounts API
 
@@ -90,7 +90,7 @@ npx knex seed:run
   <!-- - `[GET] /api/accounts` returns an array of accounts (or an empty array if there aren't any). -->
   <!-- - `[GET] /api/accounts/:id` returns an account by the given id. -->
   <!-- - `[POST] /api/accounts` returns the created account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db. -->
-  - `[PUT] /api/accounts/:id` returns the updated account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
+  <!-- - `[PUT] /api/accounts/:id` returns the updated account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db. -->
   - `[DELETE] /api/accounts/:id` returns the deleted account.
 
 - Manually test your endpoints with a REST client like `Insomnia` or `Postman` to check they are working as expected.
