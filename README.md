@@ -89,7 +89,7 @@ npx knex seed:run
 
   <!-- - `[GET] /api/accounts` returns an array of accounts (or an empty array if there aren't any). -->
   <!-- - `[GET] /api/accounts/:id` returns an account by the given id. -->
-  - `[POST] /api/accounts` returns the created account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
+  <!-- - `[POST] /api/accounts` returns the created account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db. -->
   - `[PUT] /api/accounts/:id` returns the updated account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
   - `[DELETE] /api/accounts/:id` returns the deleted account.
 

@@ -20,7 +20,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:id", checkAccountId, async (req, res, next) => {
-  res.status(200).json(req.id);
+  res.status(200).json(req.account);
 });
 
 router.post(
@@ -41,15 +41,34 @@ router.post(
   }
 );
 
-router.put("/:id", async (req, res, next) => {
-  // console.log("[PUT] /");
-});
+router.put(
+  "/:id",
+  checkAccountId,
+  checkAccountPayload,
+  async (req, res, next) => {
+    try {
+      const updated = await Accounts.updateById(req.account.id, req.body);
+      if (updated) {
+        res.status(200).json(req.body);
+        console.log(updated)
+      } else {
+        console.log(updated)
+        res.status(400).json({ message: "item not updated" });
+      }
+    } catch (error) {
+      next(error);
+    }
+    console.log("[PUT] /");
+  }
+);
 
 router.delete("/:id", async (req, res, next) => {
   // console.log("[DELETE] /");
 });
 
 router.use((err, req, res, next) => {
+  console.log(err);
+  console.log(err.message);
   // eslint-disable-line
   // CALL next(err) IF THE PROMISE REJECTS INSIDE YOUR ENDPOINTS
   res.status(500).json({
@@ -59,3 +78,8 @@ router.use((err, req, res, next) => {
 });
 
 module.exports = router;
+
+//
+// 400 - rejection error. Bad request. The server will not accept/process this. "You shall not pass!"
+// 404 - not found. Does not exist
+// 500 - not something the client/users see or get sent back. Categorically **out of the user's control.**

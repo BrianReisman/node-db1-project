@@ -50,7 +50,7 @@ exports.checkAccountId = async (req, res, next) => {
   try {
     const accountById = await Accounts.getById(req.params.id);
     if (accountById) {
-      req.id = accountById;
+      req.account = accountById;
       next();
     } else {
       res.status(404).json({ message: "account not found" });
